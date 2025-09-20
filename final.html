@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Math Calculators</title>
+    <link rel="stylesheet" href="final.css">
+</head>
+<body>
+    <!-- Calculator Selection Tabs -->
+    <div class="calculator-tabs">
+        <button class="tab-button active" onclick="showCalculator('compound')">Compound Interest Calculator</button>
+        <button class="tab-button" onclick="showCalculator('triangle')">Triangle Calculator</button>
+    </div>
+
+    <!-- Compound Interest Calculator Section -->
+    <div id="compound-calculator" class="calculator-section active">
+        <div class="container">
+            <!-- Input Section -->
+            <div class="input-section">
+                <h2>Compound Interest Calculator</h2>
+
+                <div class="input-group">
+                    <label for="principal">Principal Amount (P):</label>
+                    <input type="number" id="principal" value="12000">
+                </div>
+
+                <div class="input-group">
+                    <label for="final">Final Amount (A):</label>
+                    <input type="number" id="final" value="20736">
+                </div>
+
+                <div class="input-group">
+                    <label for="years">Number of Years (n):</label>
+                    <input type="number" id="years" value="3">
+                </div>
+
+                <button id="calculate">Calculate</button>
+                <div id="error"></div>
+            </div>
+
+            <!-- Arrow Column -->
+            <div class="arrow-col">
+                <div class="arrow arrow1">➜</div>
+                <div class="arrow arrow2">➜</div>
+                <div class="arrow arrow3">➜</div>
+                <div class="arrow arrow4">➜</div>
+                <div class="arrow arrow5">➜</div>
+            </div>
+
+            <!-- Left Column -->
+            <div class="left-col">
+                <div class="step">
+                    <span class="numbox" id="intial">12000</span>
+                    <span>=</span>
+                    <div class="bracket">
+                        <span class="thirdBracket">[</span> 1 +
+                        <span class="fraction">
+                            <span class="top varbox R" >r</span>
+                            <span class="bottom">100</span>
+                        </span> <span class="thirdBracket">]</span> <sup id="year">3</sup>
+                    </div>
+                    <span>=</span>
+                    <span class="numbox" id="final_amount">20736</span>
+                </div>
+
+                <div style="position: relative; left:130px; display: flex;flex-direction: column ; row-gap: 10px;">
+                    <div class="step">
+                        <div class="bracket"> <span class="thirdBracket">[</span> 1 +
+                            <span class="fraction">
+                                <span class="top varbox R">r</span>
+                                <span class="bottom">100</span>
+                            </span> <span class="thirdBracket">]</span><sup>3</sup>
+                        </div>
+                        <span>=</span>
+                        <span class="fraction">
+                            <span class="top" id="top1">20736</span>
+                            <span class="bottom" id="bottom1">12000</span>
+                        </span>
+                    </div>
+
+                    <div class="step">
+                        <div class="bracket"> <span class="thirdBracket">[</span> 1 +
+                            <span class="fraction">
+                                <span class="top varbox R">r</span>
+                                <span class="bottom">100</span>
+                            </span> <span class="thirdBracket">]</span><sup>3</sup>
+                        </div>
+                        <span>=</span>
+                        <span class="fraction">
+                            <span class="top" id="top2">216</span>
+                            <span class="bottom" id="bottom2">125</span>
+                        </span>
+                    </div>
+
+                    <div class="dashed-container">
+                        <div class="bracket"> <span class="thirdBracket">[</span> 1 +
+                            <span class="fraction">
+                                <span class="top varbox R">r</span>
+                                <span class="bottom">100</span>
+                            </span> <span class="thirdBracket">]</span>
+                        </div>
+                        <span>=</span>
+                        <span class="fraction">
+                            <span class="top"><span class="numbox num6" id="top3">6</span></span>
+                            <span class="bottom"><span class="numbox num5" id="bottom3">5</span></span>
+                        </span>
+
+                        <div class="dashed-line"></div>
+
+                        <div class="step">
+                            <span class="blackbox-inline "><span id="black_box">6</span><sup id="black_box_above">3</sup> = <span id="black_box_ans">216</span><br><span id="black_box1">5</span><sup id="black_box_above1">3</sup> = <span id="black_box_ans1">125</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <span class="varbox R">r</span>
+                    <span>=</span>
+                    <span class="fraction">
+                        <span class=" top"><span class="numbox num1" id="top4">1</span></span>
+                        <span class="bottom"><span class="numbox num5" id="bottom4">5</span></span>
+                    </span>
+                    <span>× 100</span>
+                    <span class="varbox R" style="margin-left: 80px;">r</span>
+                    <span>=</span>
+                    <span class="numbox" id="rate">20%</span>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-col">
+                <div class="right-top-box">
+                    <img src="interesticon.png" alt="icon">
+                    <div class="vertical-content">
+                        <span>Interest Compounded Annually</span>
+
+                        <!-- ARROW + BLACKBOX WRAPPER -->
+                        <div class="blackbox-container">
+                            <div class="long-arrow"></div>
+                            <div class="blackbox" style="color: #000;">
+                                <span class="numbox" id="statement_final">12000</span>
+                                <span class="numbox num3" id="statement_year">3</span>
+                                <span class="numbox" id="statement_intial">20736</span>
+                            </div>
+                        </div>
+
+                        <span style="text-align: center;">years</span>
+                    </div>
+                </div>
+
+                <div class="blackbox" style="padding-left: 35px;">
+                    Amount of the same sum in 2 years at<br />
+                    the same rate of compound interest
+                </div>
+
+                <div style="position: relative;left: 126px; display: flex; flex-direction: column; row-gap: 20px;">
+                    <div class="calc-line">
+                        <span>=</span>
+                        <span class="numbox" id="right_intial">12000</span>
+                        <span class="bracket"> <span class="thirdBracket">[</span>1 +
+                            <span class="fraction">
+                                <span class="top" id="right_rate">20</span>
+                                <span class="bottom">100</span>
+                            </span> <span class="thirdBracket">]</span>
+                            <sup>2</sup>
+                        </span>
+                    </div>
+
+                    <div class="calc-line">
+                        <span>=</span>
+                        <span class="numbox" id="left_right">12000</span>
+                        <span>×</span>
+                        <span class="fraction">
+                            <span class="top" id="right_top22">6</span>
+                            <span class="bottom" id="right_down22">5</span>
+                        </span>
+                        <span>×</span>
+                        <span class="fraction">
+                            <span class="top" id="right_top222">6</span>
+                            <span class="bottom" id="right_down222">5</span>
+                        </span>
+                    </div>
+
+                    <div class="calc-line">
+                        <span>=</span>
+                        <span class="highlight" id="finalOutput">17280</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Triangle Calculator Section -->
+    <div id="triangle-calculator" class="calculator-section">
+        <div class="triangle-container">
+            <!-- Input Section -->
+            <div class="triangle-input-section">
+                <h2>Enter Triangle Sides</h2>
+                <form id="triangle-form">
+                    <div class="triangle-input-group">
+                        <label for="side-a">Side AC:</label>
+                        <input type="number" id="side-a" name="side-a" placeholder="Enter side a" value="25" required>
+                    </div>
+                    <div class="triangle-input-group">
+                        <label for="side-b">Side BC:</label>
+                        <input type="number" id="side-b" name="side-b" placeholder="Enter side b" value="24" required>
+                    </div>
+                    <button type="button" id="triangle">Calculate</button>
+                </form>
+            </div>
+
+            <!-- Explanation Box -->
+            <div class="explanation-box-1">
+                <div class="math-box">
+                    <span class="highlight-a">A</span>
+                    <span class="highlight-c">C</span>
+                    -
+                    <span class="highlight-b">B</span>
+                    <span class="highlight-c">C</span>
+                    = <span class="left">1</span>
+                </div>
+
+                <div class="pythagoras-box">
+                    <div class="math-box">
+                        <div><span id="side1-display">25</span> - <span id="side2-display">24</span> = <span class="left">1</span> &nbsp;&nbsp;&nbsp;&nbsp; <span id="side1-display1">25</span><sup>2</sup> - <span id="side2-display1">24</span><sup>2</sup> =<span id="side3-display1">7</span><sup>2</sup></div>
+                        <div> <img src="./arrow.png" alt="arrow" class="arrow-img"></div>
+                        <div id="final_ans">7, 24, 25 is a Pythagorean triplet</div>
+                    </div>
+                </div>
+
+                <div class="triangle-fraction-container">
+                    <span>(Sec <span class="highlight-c">C</span> + Cot <span class="highlight-a">A</span>) =</span>
+                    <div class="triangle-fraction">
+                        <div id="sec-num">25</div>
+                        <div class="line-by"></div>
+                        <div id="sec-den">24</div>
+                    </div>
+                    <span>&nbsp;+&nbsp;</span>
+                    <div class="triangle-fraction">
+                        <div id="cot-num">7</div>
+                        <div class="line-by"></div>
+                        <div id="cot-den">24</div>
+                    </div>
+                </div>
+
+                <div class="triangle-fraction-container" style="margin-left: 190px;">
+                    <span>=</span>
+                    <div class="answer-box" id="result-box"><span id="res_num">4</span>/<span id="res_den">3</span></div>
+                </div>
+            </div>
+
+            <!-- Triangle Diagram -->
+            <div class="diagram-formula">
+                <div class="triangle-diagram">
+                    <div class="side ab"></div>
+                    <div class="side bc"></div>
+                    <svg class="side-ac-line" width="240" height="140">
+                        <polygon points="0,140 0,0 240,140" fill="rgba(173, 216, 230, 0.2)" />
+                        <line x1="0" y1="0" x2="240" y2="140" stroke="black" stroke-width="4" />
+                    </svg>
+                    <div class="label point-a">A</div>
+                    <div class="label point-b">B</div>
+                    <div class="label point-c">C</div>
+                    <div class="dimension ab-label"><span id="ab-label">7</span> cm</div>
+                    <div class="dimension bc-label"><span id="bc-label">24</span> cm</div>
+                    <div class="dimension ac-label"><span id="ac-label">25</span> cm</div>
+                </div>
+
+                <div class="formulaBoxUltimate">
+                    <div class="formula-table top-radius">
+                        <div class="triangle-fraction-container">
+                            Sec <span class="highlight-c">C</span> =
+                            <div class="triangle-fraction">
+                                <div>Hypotenuse</div>
+                                <div class="linel-by"></div>
+                                <div>Base</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="formula-table bottom-radius">
+                        <div class="triangle-fraction-container">
+                            Cot <span class="highlight-a">A</span> =
+                            <div class="triangle-fraction">
+                                <div>Perpendicular</div>
+                                <div class="linel-by"></div>
+                                <div>Base</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="final.js"></script>
+</body>
+</html>
